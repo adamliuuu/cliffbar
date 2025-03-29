@@ -28,8 +28,8 @@ struct FeedView: View {
                     
                     // Feed Items
                     LazyVStack(spacing: 16) {
-                        ForEach(viewModel.feedItems.filter { filterItem($0) }) { item in
-                            FeedItemCard(item: item, viewModel: viewModel, showingComments: $showingComments)
+                        ForEach(Array(viewModel.feedItems.filter { filterItem($0) }.enumerated()), id: \.element.id) { index, item in
+                            FeedItemCard(item: item, viewModel: viewModel, showingComments: $showingComments, index: index)
                                 .transition(.scale.combined(with: .opacity))
                         }
                     }
@@ -37,7 +37,7 @@ struct FeedView: View {
                 }
                 .padding(.vertical)
             }
-            .navigationTitle("The Tea ☕️")
+            .navigationTitle("Feed")
             .refreshable {
                 viewModel.fetchFeedItems()
             }
@@ -46,7 +46,7 @@ struct FeedView: View {
                     ProgressView()
                         .scaleEffect(1.5)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color(.systemBackground).opacity(0.8))
+                        .background(Theme.colors.background.opacity(0.8))
                 }
             }
             .alert("Error", isPresented: .constant(viewModel.error != nil)) {
@@ -56,7 +56,7 @@ struct FeedView: View {
             } message: {
                 Text(viewModel.error?.localizedDescription ?? "Unknown error")
             }
-            .background(Color(.systemBackground))
+            .background(Theme.colors.background)
             .sheet(isPresented: $showingComments) {
                 CommentsView()
             }
@@ -107,10 +107,10 @@ struct FeedItemCard: View {
     @ObservedObject var viewModel: FeedViewModel
     @Binding var showingComments: Bool
     @State private var likeScale: CGFloat = 1.0
+    let index: Int
     
     private var cardColor: Color {
-        let index = abs(item.id.hashValue) % Theme.colors.feedColors.count
-        return Theme.colors.feedColors[index]
+        Theme.colors.feedColors[index % Theme.colors.feedColors.count]
     }
     
     var body: some View {
@@ -123,16 +123,16 @@ struct FeedItemCard: View {
                     .overlay(
                         Text(item.userImage)
                             .font(.system(size: 20))
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                     )
                 
                 VStack(alignment: .leading) {
                     Text(item.userName)
                         .font(.headline)
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                     Text(item.timestamp, style: .relative)
                         .font(.caption)
-                        .foregroundColor(.white.opacity(0.8))
+                        .foregroundColor(.black.opacity(0.8))
                 }
                 
                 Spacer()
@@ -146,14 +146,14 @@ struct FeedItemCard: View {
                     }
                 } label: {
                     Image(systemName: "ellipsis")
-                        .foregroundColor(.white.opacity(0.8))
+                        .foregroundColor(.black.opacity(0.8))
                 }
             }
             
             // Content
             Text(item.description)
                 .font(.subheadline)
-                .foregroundColor(.white)
+                .foregroundColor(.black)
             
             // Interaction Buttons
             HStack(spacing: 20) {
@@ -168,21 +168,21 @@ struct FeedItemCard: View {
                 }) {
                     HStack(spacing: 4) {
                         Image(systemName: viewModel.isLiked(itemId: item.id) ? "heart.fill" : "heart")
-                            .foregroundColor(viewModel.isLiked(itemId: item.id) ? .white : .white.opacity(0.8))
+                            .foregroundColor(viewModel.isLiked(itemId: item.id) ? .black : .black.opacity(0.8))
                             .scaleEffect(likeScale)
                         Text("\(item.likes)")
                             .font(.caption)
-                            .foregroundColor(.white.opacity(0.8))
+                            .foregroundColor(.black.opacity(0.8))
                     }
                 }
                 
                 Button(action: { showingComments = true }) {
                     HStack(spacing: 4) {
                         Image(systemName: "bubble.right")
-                            .foregroundColor(.white.opacity(0.8))
+                            .foregroundColor(.black.opacity(0.8))
                         Text("\(item.comments)")
                             .font(.caption)
-                            .foregroundColor(.white.opacity(0.8))
+                            .foregroundColor(.black.opacity(0.8))
                     }
                 }
                 

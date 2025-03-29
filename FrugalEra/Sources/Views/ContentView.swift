@@ -36,6 +36,7 @@ struct ContentView: View {
                 .tag(4)
         }
         .tint(.purple)
+        .background(Theme.colors.background)
         .onAppear {
             // Customize tab bar appearance
             let appearance = UITabBarAppearance()

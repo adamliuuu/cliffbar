@@ -8,9 +8,9 @@ public struct AppColors {
     public static let primary = Color(hex: "FF6B6B") // Coral red
     public static let secondary = Color(hex: "4ECDC4") // Turquoise
     public static let accent = Color(hex: "FFE66D") // Yellow
-    public static let background = Color(hex: "F7F7F7") // Light gray
+    public static let background = Color(hex: "f7ecd7") // Warm cream
     public static let cardBackground = Color.white
-    public static let text = Color(hex: "2C3E50") // Dark blue-gray
+    public static let text = Color(hex: "7895b3") // Soft blue-gray
     public static let textSecondary = Color(hex: "95A5A6") // Gray
     
     // Gradient colors
@@ -23,22 +23,18 @@ public struct AppColors {
     public static let error = Color(hex: "E74C3C") // Red
     
     // Feed post colors
-    public static let feedColor1 = Color(hex: "7d2f34") // Deep red
-    public static let feedColor2 = Color(hex: "bc6f59") // Terracotta
-    public static let feedColor3 = Color(hex: "e1b38b") // Warm beige
-    public static let feedColor4 = Color(hex: "b47e7b") // Dusty rose
-    public static let feedColor5 = Color(hex: "8ba07e") // Sage green
-    public static let feedColor6 = Color(hex: "645c73") // Muted purple
-    public static let feedColor7 = Color(hex: "7a5284") // Deep purple
+    public static let feedColor1 = Color(hex: "D0C3F1") // Soft purple
+    public static let feedColor2 = Color(hex: "E9F9E5") // Mint green
+    public static let feedColor3 = Color(hex: "CEEEF8") // Light blue
+    public static let feedColor4 = Color(hex: "FFD7EE") // Pink
+    public static let feedColor5 = Color(hex: "FEF1AB") // Light yellow
     
     public static let feedColors: [Color] = [
         feedColor1,
         feedColor2,
         feedColor3,
         feedColor4,
-        feedColor5,
-        feedColor6,
-        feedColor7
+        feedColor5
     ]
 }
 
