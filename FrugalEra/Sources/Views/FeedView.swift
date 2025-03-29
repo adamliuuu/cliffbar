@@ -185,12 +185,81 @@ struct FeedItemCard: View {
                             .foregroundColor(.white.opacity(0.8))
                     }
                 }
+                
+                Button(action: {
+                    viewModel.currentPostId = item.id
+                    viewModel.showingFriendSelector = true
+                }) {
+                    HStack(spacing: 4) {
+                        Image(systemName: "person.badge.plus")
+                            .foregroundColor(.white.opacity(0.8))
+                        Text("Add Friends")
+                            .font(.caption)
+                            .foregroundColor(.white.opacity(0.8))
+                    }
+                }
+            }
+            
+            // Selected Friends
+            if !viewModel.getSelectedFriends(for: item.id).isEmpty {
+                HStack {
+                    Spacer()
+                    Text("with " + viewModel.getSelectedFriends(for: item.id).joined(separator: " and "))
+                        .font(.caption)
+                        .foregroundColor(.white.opacity(0.8))
+                }
             }
         }
         .padding()
         .background(cardColor)
         .cornerRadius(12)
         .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
+        .sheet(isPresented: $viewModel.showingFriendSelector) {
+            FriendSelectorView(viewModel: viewModel)
+        }
+    }
+}
+
+struct FriendSelectorView: View {
+    @ObservedObject var viewModel: FeedViewModel
+    @Environment(\.dismiss) var dismiss
+    
+    var body: some View {
+        NavigationView {
+            List {
+                ForEach(viewModel.availableFriends, id: \.self) { friend in
+                    Button(action: {
+                        if let postId = viewModel.currentPostId {
+                            viewModel.toggleFriendSelection(for: postId, friendName: friend)
+                        }
+                    }) {
+                        HStack {
+                            Text(friend)
+                            Spacer()
+                            if let postId = viewModel.currentPostId,
+                               viewModel.isFriendSelected(for: postId, friendName: friend) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.blue)
+                            }
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Add Friends")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Done") {
+                        dismiss()
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -198,12 +267,24 @@ struct CommentsView: View {
     @Environment(\.dismiss) var dismiss
     @State private var newComment = ""
     
+    // Sample comments for different types of posts
+    private let comments = [
+        Comment(userName: "Alex Smith", text: "That's such a good deal! I've been looking for something similar but everything's so expensive rn 😭", timeAgo: "2h ago"),
+        Comment(userName: "Sam Chen", text: "Pro tip: Check out the clearance section next time! I got mine for 30% off", timeAgo: "3h ago"),
+        Comment(userName: "Jordan Taylor", text: "Was this worth it? I'm debating getting one too but trying to be more mindful of spending", timeAgo: "4h ago"),
+        Comment(userName: "Riley Patel", text: "OMG I wanted to buy this! Where did you find it?", timeAgo: "5h ago"),
+        Comment(userName: "Morgan Lee", text: "You can find similar items at thrift stores for way less! Just saying 💅", timeAgo: "6h ago"),
+        Comment(userName: "Casey Wong", text: "Remember to check if you really need it before buying! I've been trying to follow the 24-hour rule", timeAgo: "7h ago"),
+        Comment(userName: "Jamie Rodriguez", text: "That's actually a pretty good price compared to what I've seen lately", timeAgo: "8h ago"),
+        Comment(userName: "Taylor Kim", text: "I got something similar last month and it's been worth every penny!", timeAgo: "9h ago")
+    ]
+    
     var body: some View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(1...5, id: \.self) { _ in
-                        CommentRow()
+                    ForEach(comments, id: \.userName) { comment in
+                        CommentRow(comment: comment)
                     }
                 }
                 
@@ -236,7 +317,16 @@ struct CommentsView: View {
     }
 }
 
+struct Comment: Identifiable {
+    let id = UUID()
+    let userName: String
+    let text: String
+    let timeAgo: String
+}
+
 struct CommentRow: View {
+    let comment: Comment
+    
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
             Circle()
@@ -248,12 +338,12 @@ struct CommentRow: View {
                 )
             
             VStack(alignment: .leading, spacing: 4) {
-                Text("User Name")
+                Text(comment.userName)
                     .font(.subheadline)
                     .fontWeight(.medium)
-                Text("This is a sample comment that could be quite long and span multiple lines if needed.")
+                Text(comment.text)
                     .font(.subheadline)
-                Text("2h ago")
+                Text(comment.timeAgo)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }

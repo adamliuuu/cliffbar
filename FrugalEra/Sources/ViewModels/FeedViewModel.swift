@@ -6,6 +6,39 @@ class FeedViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var error: Error?
     @Published var likedItems: Set<UUID> = []
+    @Published var selectedFriends: [UUID: Set<String>] = [:] // Maps post ID to set of friend names
+    @Published var showingFriendSelector = false
+    @Published var currentPostId: UUID?
+    
+    // Sample friends list
+    let availableFriends = [
+        "Brooke Xu",
+        "Nicole Deng",
+        "Ziya Momin",
+        "Adam Liu",
+        "Joe Fisherman",
+        "Bennett Zeus"
+    ]
+    
+    func toggleFriendSelection(for postId: UUID, friendName: String) {
+        if selectedFriends[postId] == nil {
+            selectedFriends[postId] = []
+        }
+        
+        if selectedFriends[postId]?.contains(friendName) == true {
+            selectedFriends[postId]?.remove(friendName)
+        } else {
+            selectedFriends[postId]?.insert(friendName)
+        }
+    }
+    
+    func isFriendSelected(for postId: UUID, friendName: String) -> Bool {
+        selectedFriends[postId]?.contains(friendName) ?? false
+    }
+    
+    func getSelectedFriends(for postId: UUID) -> [String] {
+        Array(selectedFriends[postId] ?? [])
+    }
     
     func fetchFeedItems() {
         isLoading = true
@@ -16,69 +49,69 @@ class FeedViewModel: ObservableObject {
             self.feedItems = [
                 FeedItem(
                     id: UUID(),
-                    title: "Alex is in their frugal era 💅",
+                    title: "Joe is in their frugal era 💅",
                     description: "Just started a new budget and saved $200 this week! Living that broke girl lifestyle fr fr",
                     timestamp: Date().addingTimeInterval(-3600),
                     type: .spending,
-                    likes: Int.random(in: 50...200),
-                    comments: Int.random(in: 10...50),
+                    likes: Int.random(in: 1...10),
+                    comments: Int.random(in: 1...10),
                     userImage: "👤",
-                    userName: "Alex"
+                    userName: "Joe"
                 ),
                 FeedItem(
                     id: UUID(),
-                    title: "Late Night Shopping Alert 🚨",
-                    description: "Sam made an impulse purchase at Target at 2 AM... we've all been there bestie",
+                    title: "Energy Drink Addiction Alert ⚡️",
+                    description: "Nicole just bought their 4th Red Bull of the day... at this point they're probably vibrating through walls",
                     timestamp: Date().addingTimeInterval(-7200),
                     type: .purchase,
-                    likes: Int.random(in: 30...150),
-                    comments: Int.random(in: 5...30),
+                    likes: Int.random(in: 1...10),
+                    comments: Int.random(in: 1...10),
                     userImage: "👤",
-                    userName: "Sam"
+                    userName: "Nicole"
                 ),
                 FeedItem(
                     id: UUID(),
                     title: "Health Check! 🏥",
-                    description: "Jordan has a doctor's appointment tomorrow - sending good vibes! Don't forget to check in on your friends",
+                    description: "Adam has a doctor's appointment tomorrow - sending good vibes! Don't forget to check in on your friends",
                     timestamp: Date().addingTimeInterval(-86400),
                     type: .health,
-                    likes: Int.random(in: 40...180),
-                    comments: Int.random(in: 8...40),
+                    likes: Int.random(in: 1...10),
+                    comments: Int.random(in: 1...10),
                     userImage: "👤",
-                    userName: "Jordan"
+                    userName: "Adam"
                 ),
                 FeedItem(
                     id: UUID(),
                     title: "New Drip Alert 👀",
-                    description: "Taylor just bought something expensive at Best Buy - check out their new setup!",
+                    description: "Ziya just bought something expensive at Best Buy - check out their new setup!",
                     timestamp: Date().addingTimeInterval(-172800),
                     type: .purchase,
-                    likes: Int.random(in: 60...250),
-                    comments: Int.random(in: 15...60),
+                    likes: Int.random(in: 1...10),
+                    comments: Int.random(in: 1...10),
                     userImage: "👤",
-                    userName: "Taylor"
+                    userName: "Ziya"
                 ),
                 FeedItem(
                     id: UUID(),
-                    title: "Someone's Having Fun Tonight 🍻",
-                    description: "Riley just bought alcohol at 8 PM on a Tuesday... we don't judge, we just observe",
+                    title: "Late Night Shopping Alert 🚨",
+                    description: "Brooke made an impulse purchase at Target at 2 AM... we've all been there bestie",
                     timestamp: Date().addingTimeInterval(-259200),
                     type: .purchase,
-                    likes: Int.random(in: 45...200),
-                    comments: Int.random(in: 12...45),
+                    likes: Int.random(in: 1...10),
+                    comments: Int.random(in: 1...10),
                     userImage: "👤",
-                    userName: "Riley"
+                    userName: "Brooke"
                 ),
                 FeedItem(
                     id: UUID(),
                     title: "Touch Grass Alert 🌱",
-                    description: "Morgan just subscribed to their 5th streaming service... maybe go outside?",
+                    description: "Bennett just subscribed to their 5th streaming service... maybe go outside?",
                     timestamp: Date().addingTimeInterval(-345600),
                     type: .purchase,
-                    likes: Int.random(in: 70...300),
-                    comments: Int.random(in: 20...70),
+                    likes: Int.random(in: 1...10),
+                    comments: Int.random(in: 1...10),
                     userImage: "👤",
-                    userName: "Morgan"
+                    userName: "Bennett"
                 ),
                 FeedItem(
                     id: UUID(),
@@ -87,7 +120,7 @@ class FeedViewModel: ObservableObject {
                     timestamp: Date().addingTimeInterval(-432000),
                     type: .purchase,
                     likes: Int.random(in: 80...350),
-                    comments: Int.random(in: 25...80),
+                    comments: Int.random(in: 1...10),
                     userImage: "👤",
                     userName: "Casey"
                 ),
@@ -98,11 +131,30 @@ class FeedViewModel: ObservableObject {
                     timestamp: Date().addingTimeInterval(-518400),
                     type: .purchase,
                     likes: Int.random(in: 90...400),
-                    comments: Int.random(in: 30...90),
+                    comments: Int.random(in: 1...10),
                     userImage: "👤",
                     userName: "Jamie"
                 )
             ]
+            
+            // Adjust likes to be at most 2 less than comments
+            for i in 0..<self.feedItems.count {
+                let comments = self.feedItems[i].comments
+                let currentLikes = self.feedItems[i].likes
+                if currentLikes < comments - 2 {
+                    self.feedItems[i] = FeedItem(
+                        id: self.feedItems[i].id,
+                        title: self.feedItems[i].title,
+                        description: self.feedItems[i].description,
+                        timestamp: self.feedItems[i].timestamp,
+                        type: self.feedItems[i].type,
+                        likes: comments - 2,
+                        comments: comments,
+                        userImage: self.feedItems[i].userImage,
+                        userName: self.feedItems[i].userName
+                    )
+                }
+            }
             
             self.isLoading = false
         }
@@ -131,6 +183,7 @@ struct FeedItem: Identifiable {
     let comments: Int
     let userImage: String
     let userName: String
+    var selectedFriends: [String] = [] // New property for selected friends
 }
 
 enum FeedItemType {
