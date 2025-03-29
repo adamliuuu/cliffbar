@@ -74,7 +74,7 @@ struct LeaderboardView: View {
                     
                     // Monthly Rankings
                     VStack(alignment: .leading, spacing: 15) {
-                        Text("Monthly Rankings")
+                        Text("March Rankings")
                             .font(.title2)
                             .fontWeight(.bold)
                         
