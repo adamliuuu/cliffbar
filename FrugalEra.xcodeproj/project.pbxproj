@@ -1,0 +1,354 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		174BE40472E98DA74D048088 /* FrugalEraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D53739AAB70C174107FC6 /* FrugalEraApp.swift */; };
+		3B0ACBA73DCB23D068D5974B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0081E7A1E9E51508642DE99 /* ContentView.swift */; };
+		63A55466CD0B88FC14CA5DEF /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5C445EA0A79695E0E812B /* FeedViewModel.swift */; };
+		65C86F737C67E89B1729B48C /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF365EBD4569B36A80E88AFC /* FeedItem.swift */; };
+		6ABB12EA8D13C99170ED574F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9D81E1015D8DA5B0649B1 /* Theme.swift */; };
+		9F1661B2798E772C473B219F /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88BFD7B26135B035A7B5543 /* FeedView.swift */; };
+		9F2DE674A0B956E2BD13E2B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D68F17DA938A4BADD5912 /* LaunchScreen.storyboard */; };
+		BB9A96E5826D55DE2BDE134C /* AddPostModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4B61B36F8F764C0EB9818 /* AddPostModal.swift */; };
+		F961658ADA7B1F7A93821A45 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00ADA8E0DC6E62CA5B9C9BF /* CommentsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		03D4B61B36F8F764C0EB9818 /* AddPostModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostModal.swift; sourceTree = "<group>"; };
+		219D53739AAB70C174107FC6 /* FrugalEraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrugalEraApp.swift; sourceTree = "<group>"; };
+		49A1B1A8E91083AE0EC63010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4A8D68F17DA938A4BADD5912 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		63E9D81E1015D8DA5B0649B1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		7FD99B80578707776DDF63D1 /* FrugalEra.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FrugalEra.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DF5C445EA0A79695E0E812B /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		B00ADA8E0DC6E62CA5B9C9BF /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
+		C88BFD7B26135B035A7B5543 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		D0081E7A1E9E51508642DE99 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FF365EBD4569B36A80E88AFC /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		05A310A80B7304E4AAB8B954 /* FrugalEra */ = {
+			isa = PBXGroup;
+			children = (
+				219D53739AAB70C174107FC6 /* FrugalEraApp.swift */,
+				49A1B1A8E91083AE0EC63010 /* Info.plist */,
+				4A8D68F17DA938A4BADD5912 /* LaunchScreen.storyboard */,
+				83312CFA7BE737C1018A4D1A /* Models */,
+				BE90D18B11D82CD1B678FC8C /* Theme */,
+				8EEB8776A60D90DCCA845284 /* ViewModels */,
+				2A42729A74FD8CE476C46BF8 /* Views */,
+			);
+			name = FrugalEra;
+			path = Sources/FrugalEra;
+			sourceTree = "<group>";
+		};
+		27A230197E54D476E9D8E030 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7FD99B80578707776DDF63D1 /* FrugalEra.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A42729A74FD8CE476C46BF8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				03D4B61B36F8F764C0EB9818 /* AddPostModal.swift */,
+				B00ADA8E0DC6E62CA5B9C9BF /* CommentsView.swift */,
+				D0081E7A1E9E51508642DE99 /* ContentView.swift */,
+				C88BFD7B26135B035A7B5543 /* FeedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		83312CFA7BE737C1018A4D1A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF365EBD4569B36A80E88AFC /* FeedItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8EEB8776A60D90DCCA845284 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8DF5C445EA0A79695E0E812B /* FeedViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		92C705860C13367FB58FAB02 = {
+			isa = PBXGroup;
+			children = (
+				05A310A80B7304E4AAB8B954 /* FrugalEra */,
+				27A230197E54D476E9D8E030 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE90D18B11D82CD1B678FC8C /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				63E9D81E1015D8DA5B0649B1 /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		07E80B27BA36B251CFD4D2E8 /* FrugalEra */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 292D988BE836A2D6F52F2695 /* Build configuration list for PBXNativeTarget "FrugalEra" */;
+			buildPhases = (
+				44ACB9BA1E285C2F33D63B66 /* Sources */,
+				9AB69BF2FCE1B5A984559290 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FrugalEra;
+			productName = FrugalEra;
+			productReference = 7FD99B80578707776DDF63D1 /* FrugalEra.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DB26FAFC2CC35BB9F21D687B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = F30BDE554687AE23DE9BEFCD /* Build configuration list for PBXProject "FrugalEra" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 92C705860C13367FB58FAB02;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				07E80B27BA36B251CFD4D2E8 /* FrugalEra */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9AB69BF2FCE1B5A984559290 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F2DE674A0B956E2BD13E2B7 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		44ACB9BA1E285C2F33D63B66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB9A96E5826D55DE2BDE134C /* AddPostModal.swift in Sources */,
+				F961658ADA7B1F7A93821A45 /* CommentsView.swift in Sources */,
+				3B0ACBA73DCB23D068D5974B /* ContentView.swift in Sources */,
+				65C86F737C67E89B1729B48C /* FeedItem.swift in Sources */,
+				9F1661B2798E772C473B219F /* FeedView.swift in Sources */,
+				63A55466CD0B88FC14CA5DEF /* FeedViewModel.swift in Sources */,
+				174BE40472E98DA74D048088 /* FrugalEraApp.swift in Sources */,
+				6ABB12EA8D13C99170ED574F /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		02E08DCA90BD197BA2E2DD9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Sources/FrugalEra/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.frugalera.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2BBA9E63F96E71DCAA1D3EC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Sources/FrugalEra/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.frugalera.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C7F9CF219317531E0C2673CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F37A4D1DB0A697BE603C944F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		292D988BE836A2D6F52F2695 /* Build configuration list for PBXNativeTarget "FrugalEra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02E08DCA90BD197BA2E2DD9F /* Debug */,
+				2BBA9E63F96E71DCAA1D3EC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F30BDE554687AE23DE9BEFCD /* Build configuration list for PBXProject "FrugalEra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F37A4D1DB0A697BE603C944F /* Debug */,
+				C7F9CF219317531E0C2673CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DB26FAFC2CC35BB9F21D687B /* Project object */;
+}

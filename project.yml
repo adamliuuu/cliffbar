@@ -1,0 +1,26 @@
+name: FrugalEra
+options:
+  bundleIdPrefix: com.frugalera
+  deploymentTarget:
+    iOS: 16.0
+targets:
+  FrugalEra:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources/FrugalEra
+    settings:
+      base:
+        INFOPLIST_FILE: Sources/FrugalEra/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.frugalera.app
+    info:
+      path: Sources/FrugalEra/Info.plist
+      properties:
+        LSRequiresIPhoneOS: true
+        UILaunchStoryboardName: LaunchScreen
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneConfigurationName: Default Configuration
+                UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate 
